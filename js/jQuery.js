@@ -1,5 +1,5 @@
-var rows = 16;
-var columns = 16;
+var rows = 0;
+var columns = 0;
 var $row = $("<div />", {
 	class: 'row'
 });
@@ -9,12 +9,7 @@ var $square = $("<div />", {
 
 $(document).ready(function() {
 	console.log("Hola");
-	for(var i=0; i < columns; i++) {
-		$row.append($square.clone());
-	}
-	for(var i=0; i < rows; i++) {
-		$("#container-grid").append($row.clone());
-	}
+	newGrid(16);
 });
 
 $(function() {
@@ -27,3 +22,30 @@ $(function() {
 		
 	});
 });
+
+$(function() {
+	$('button').click(function() {
+		console.log("click");
+		var selection = prompt("How many squares for side?");
+		
+		$("#container-grid").fadeOut('fast');
+		newGrid(selection);
+		$('.square').css("background-color", "white");
+		$("#container-grid").fadeIn('slow');
+	});
+});
+
+function newGrid(number) {
+	var size = 960 / number - 2;
+
+	for(var i=0; i < number; i++) {
+		$row.append($square.clone());
+	}
+	for(var i=0; i < number; i++) {
+		$("#container-grid").append($row.clone());
+	}
+
+	$('.square').css("width", size + "px");
+	$('.square').css("height", size + "px");
+}
+
