@@ -1,3 +1,7 @@
+body {
+	text-align: center;
+}
+
 #container-grid {
 	position:absolute;
     left:50%;
@@ -17,6 +21,8 @@
 	float: left;
 }
 
-.row {
-
+button {
+	position: relative;
+	text-align: center;
+	margin-bottom: 10px;
 }
